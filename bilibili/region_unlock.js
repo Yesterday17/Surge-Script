@@ -14,6 +14,8 @@ if (url && typeof url === "string") {
     if (Bangumi.has(Number(season[1]))) {
       ret = true;
       $persistentStore.write(season[1], "bangumi");
+    } else {
+      $persistentStore.write(null, "bangumi");
     }
   } else if (url.includes(episode_url)) {
     let bangumi = $persistentStore.read("bangumi");
