@@ -228,12 +228,12 @@ const md5 = (function() {
 let url = $request.url;
 const result = {};
 
-const base = "https://api.bilibili.com/pgc/player/api/playurl";
 const appKey = "iVGUTjsxvpLeuDCf";
 const secKey = "aHRmhWMLkdeMuILqORnYZocwMBpMEOdt";
 
 if (url) {
   if (url.includes("dl=1")) {
+    const base = url.split("?")[0];
     let params = url.split("?")[1];
 
     params = params
