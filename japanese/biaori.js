@@ -3,7 +3,7 @@ let body = $request.body;
 
 const result = {};
 
-if (url && url === "http://ebookdomainry.pep.com.cn/api/" && body) {
+if (url && body) {
   const json = JSON.parse(body);
   if (json.action === "GetActivateBookList") {
     result.response = { status: 200 }
