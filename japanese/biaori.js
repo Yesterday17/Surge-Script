@@ -6,8 +6,8 @@ const result = {};
 if (url && body) {
   const json = JSON.parse(body);
   if (json.action === "GetActivateBookList") {
-    result.response = { status: 200 }
-    result.response.body = JSON.stringify({
+    result.response = { $status: 200 }
+    result.response.$body = JSON.stringify({
       status: 0,
       data: [
         {
@@ -34,8 +34,8 @@ if (url && body) {
       ]
     });
   } else if (json.action === "advertisement") {
-    result.response = { status: 200 }
-    result.response.body = JSON.stringify({
+    result.response = { $status: 200 }
+    result.response.$body = JSON.stringify({
       status: "1",
       data: [],
       message: "广告图片获取成功",
