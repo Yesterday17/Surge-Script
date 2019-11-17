@@ -6,7 +6,8 @@ const result = {};
 if (url && url === "http://ebookdomainry.pep.com.cn/api/" && body) {
   const json = JSON.parse(body);
   if (json.action === "GetActivateBookList") {
-    result.body = JSON.stringify({
+    result.response = { status: 200 }
+    result.response.body = JSON.stringify({
       status: 0,
       data: [
         {
@@ -33,7 +34,8 @@ if (url && url === "http://ebookdomainry.pep.com.cn/api/" && body) {
       ]
     });
   } else if (json.action === "advertisement") {
-    result.body = JSON.stringify({
+    result.response = { status: 200 }
+    result.response.body = JSON.stringify({
       status: "1",
       data: [],
       message: "广告图片获取成功",
