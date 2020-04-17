@@ -1,0 +1,15 @@
+#!name= 哔哩哔哩番剧
+#!desc= 港澳台区域解锁，强制允许缓存
+#!system=ios
+
+[Rule]
+URL-REGEX,https://app.bilibili.com/x/v2/(splash|search/(defaultword|square)),REJECT
+URL-REGEX,https://api.bilibili.com/x/v2/dm/ad,REJECT
+
+[MITM]
+hostname = %APPEND% api.bilibili.com, bilibili-*-api.kghost.info
+
+[Script]
+region_unlock = type=http-request,pattern=(api\.)?bilibili[^.]*\.(kghost\.info|com)/pgc,script-path=https://raw.githubusercontent.com/Yesterday17/Surge-Script/master/bilibili/region_unlock.js
+playurl_redirect = type=http-request,pattern=api.bilibili.com/pgc/player/api/playurl,script-path=https://raw.githubusercontent.com/Yesterday17/Surge-Script/master/bilibili/playurl_redirect.js
+bangumi_download = type=http-response,pattern=api.bilibili.com/pgc/view/app/season\?,requires-body=1,max-size=262144,script-path=https://raw.githubusercontent.com/Yesterday17/Surge-Script/master/bilibili/bangumi_download.js
