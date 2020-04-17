@@ -2,23 +2,29 @@ const Bangumi = new Map([[33120,{"season_id":33120,"title":"刀劍神域 Aliciza
 
 const season_url = "api.bilibili.com/pgc/view/app/season";
 const episode_url = "api.bilibili.com/pgc/player/api/playurl";
+const types = {
+  hk: "bilibili-hk-api.kghost.info",
+  tw: "bilibili-tw-api.kghost.info",
+  sg: "bilibili-sg-api.kghost.info",
+  "": "api.bilibili.com",
+};
 
-let url = $request.url;
+let { url, headers } = $request;
 
-const seasonMatch = function(season) {
+const seasonMatch = function (season) {
   if (!Bangumi.has(season)) {
-    return '';
+    return "";
   }
   return Bangumi.get(season).type;
 };
 
-const epMatch = function(ep) {
+const epMatch = function (ep) {
   for (const [sid, bangumi] of Bangumi) {
     if (bangumi.eps.includes(ep)) {
       return bangumi.type;
     }
   }
-  return '';
+  return "";
 };
 
 if (url && typeof url === "string") {
@@ -32,17 +38,8 @@ if (url && typeof url === "string") {
       ret = epMatch(Number(episode[1]));
     }
 
-    switch(ret) {
-      case "hk":
-        url = url.replace('api.bilibili.com', 'bilibili-hk-api.kghost.info');
-        break;
-      case "tw":
-        url = url.replace('api.bilibili.com', 'bilibili-tw-api.kghost.info');
-        break;
-      case "sg":
-        url = url.replace('api.bilibili.com', 'bilibili-sg-api.kghost.info');
-        break;
-    }
+    url = url.replace("api.bilibili.com", types[ret]);
+    headers["Host"] = types[ret];
   }
 }
 
