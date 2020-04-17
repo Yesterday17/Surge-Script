@@ -3,7 +3,7 @@ const Bangumi = new Map([[33120,{"season_id":33120,"title":"刀劍神域 Aliciza
 const season_url = "api.bilibili.com/pgc/view/app/season";
 const episode_url = "api.bilibili.com/pgc/player/api/playurl";
 
-const url = $request.url;
+let url = $request.url;
 
 const seasonMatch = function(season) {
   if (!Bangumi.has(season)) {
