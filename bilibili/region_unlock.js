@@ -43,4 +43,4 @@ if (url && typeof url === "string") {
   }
 }
 
-$done({ url });
+$done({ url, headers });
