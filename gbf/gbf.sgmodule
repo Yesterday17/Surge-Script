@@ -1,0 +1,9 @@
+#!name= 碧蓝幻想翻译
+#!desc= 碧蓝幻想的汉化脚本，提交新翻译请到 https://github.com/biuuu/BLHXFY
+#!system=ios
+
+[MITM]
+hostname = %APPEND% game.granbluefantasy.jp, gbf.game.mbga.jp
+
+[Script]
+monkey_emulate = type=http-response,pattern=(game\.granbluefantasy\.jp)|(gbf\.game\.mbga\.jp),requires-body=1,max-size=262144,script-path=https://raw.githubusercontent.com/Yesterday17/Surge-Script/master/gbf/gbf_blhxfy.js
