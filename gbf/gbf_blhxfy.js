@@ -4,32 +4,6 @@ function insert(str, index, value) {
 
 const toInsert = `
 <script>
-function GM_xmlhttpRequest({
-  method,
-  url,
-  headers,
-  responseType,
-  data,
-  onload,
-  onerror,
-}) {
-  var xhr = new XMLHttpRequest();
-  xhr.onload = onload;
-  xhr.onerror = onerror;
-
-  xhr.open(method, url);
-  xhr.responseType = responseType;
-
-  // Set headers
-  for (let key in headers) {
-    xhr.setRequestHeader(key, headers[key]);
-  }
-
-  xhr.send(data);
-}
-
-window.GM_xmlhttpRequest = GM_xmlhttpRequest;
-
 (function () {
   const script = document.createElement("script");
   script.src = "https://blhx.danmu9.com/blhxfy/extension.user.js";
@@ -45,9 +19,9 @@ if (
   body &&
   headers &&
   typeof headers["Content-Type"] === "string" &&
-  headers["Content-Type"].includes("text/html")
+  headers["Content-Type"].includes("text/html") &&
+  body.lastIndexOf("</head>") !== -1
 ) {
-  result.body;
   result.body = insert(body, body.lastIndexOf("</head>"), toInsert);
   result.headers = headers;
 }
