@@ -1,5 +1,5 @@
 #!name= 哔哩哔哩番剧
-#!desc= 港澳台区域解锁，强制允许缓存
+#!desc= 港澳台区域解锁，强制允许缓存，强制选择最高画质
 #!system=ios
 
 [Rule]
@@ -12,4 +12,5 @@ hostname = %APPEND% api.bilibili.com, bilibili-*-api.kghost.info
 [Script]
 region_unlock = type=http-request,pattern=(api\.)?bilibili[^.]*\.(kghost\.info|com)/pgc,script-path=https://raw.githubusercontent.com/Yesterday17/Surge-Script/master/bilibili/region_unlock.js
 playurl_redirect = type=http-request,pattern=(api\.)?bilibili[^.]*\.(kghost\.info|com)/pgc/player/api/playurl,script-path=https://raw.githubusercontent.com/Yesterday17/Surge-Script/master/bilibili/playurl_redirect.js
+bangumi_hd = type=http-response,pattern=(api\.)?bilibili[^.]*\.(kghost\.info|com)/pgc/player/api/playurl,requires-body=1,max-size=262144,script-path=https://raw.githubusercontent.com/Yesterday17/Surge-Script/master/bilibili/bangumi_hd.js
 bangumi_download = type=http-response,pattern=(api\.)?bilibili[^.]*\.(kghost\.info|com)/pgc/view/app/season\?,requires-body=1,max-size=262144,script-path=https://raw.githubusercontent.com/Yesterday17/Surge-Script/master/bilibili/bangumi_download.js
