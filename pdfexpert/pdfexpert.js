@@ -3,21 +3,11 @@ const result = {};
 
 if (body) {
   try {
-    const resp = JSON.parse(body);
-    if (resp["subscriptionState"]) {
-      result.body = JSON.stringify({
-        isEligibleForIntroPeriod: false,
-        originalTransactionId: "861145141919810",
-        subscriptionExpirationDate: "23:59 31/12/9999",
-        subscriptionState: "active",
-        subscriptionReceiptId: "1145141919810",
-        isPDFExpert6User: false,
-        subscriptionAutoRenewStatus: "autoRenewOff",
-        isInGracePeriod: false
-      });
-    }
+    result.body = atob(
+      "eyJwcm9kdWN0SWQiOiJjb20ucmVhZGRsZS5QREZFeHBlcnQ1LnN1YnNjcmlwdGlvbi55ZWFyNTBfcGU2Iiwic3Vic2NyaXB0aW9uRXhwaXJhdGlvbkludGVudCI6InVzZXJDYW5jZWxsZWQiLCJyZWNlaXB0U3RhdHVzIjoib2siLCJzdWJzY3JpcHRpb25FeHBpcmF0aW9uRGF0ZSI6IjEzOjE1IDAzLzExLzIwOTkiLCJpc1BERkV4cGVydDZVc2VyIjpmYWxzZSwiaW5BcHBTdGF0ZXMiOlt7InByb2R1Y3RJZCI6ImNvbS5yZWFkZGxlLlBERkV4cGVydDUuc3Vic2NyaXB0aW9uLnllYXI1MF9wZTYiLCJzdWJzY3JpcHRpb25FeHBpcmF0aW9uSW50ZW50IjoidXNlckNhbmNlbGxlZCIsInJlY2VpcHRTdGF0dXMiOiJvayIsInN1YnNjcmlwdGlvbkV4cGlyYXRpb25EYXRlIjoiMTM6MTUgMDMvMTEvMjA5OSIsImlzRWxpZ2libGVGb3JJbnRyb1BlcmlvZCI6ZmFsc2UsIm9yaWdpbmFsVHJhbnNhY3Rpb25JZCI6IjIwMDAwNjE4NDQ0OTk2IiwicHJvZHVjdE5hbWUiOiJzdWJzY3JpcHRpb24iLCJpc0luQmlsbGluZ1JldHJ5UGVyaW9kIjpmYWxzZSwidHlwZSI6InN1YnNjcmlwdGlvbiIsInN1YnNjcmlwdGlvblN0YXRlIjoiYWN0aXZlIiwic3Vic2NyaXB0aW9uQXV0b1JlbmV3U3RhdHVzIjoiYXV0b1JlbmV3T2ZmIiwiaXNJbkdyYWNlUGVyaW9kIjpmYWxzZX1dLCJpc0VsaWdpYmxlRm9ySW50cm9QZXJpb2QiOmZhbHNlLCJvcmlnaW5hbFRyYW5zYWN0aW9uSWQiOiIyMDAwMDYxODQ0NDk5NiIsImlzRWxpZ2libGVGb3IiOlsid2luYmFjayJdLCJpc0luQmlsbGluZ1JldHJ5UGVyaW9kIjpmYWxzZSwidHlwZSI6InN1YnNjcmlwdGlvbiIsImluQXBwUHVyY2hhc2VkIjpbImNvbS5yZWFkZGxlLlBERkV4cGVydDUuc3Vic2NyaXB0aW9uLnllYXI1MF9wZTYiXSwiYnVuZGxlSWQiOiJjb20ucmVhZGRsZS5QREZFeHBlcnQ1IiwicmVjZWlwdElkIjoxNTcyMTc4NDA0MDAwLCJjaGFyZ2luZ1BsYXRmb3JtIjoiaU9TIEFwcFN0b3JlIiwic3Vic2NyaXB0aW9uU3RhdGUiOiJhY3RpdmUiLCJzdWJzY3JpcHRpb25BdXRvUmVuZXdTdGF0dXMiOiJhdXRvUmVuZXdPZmYiLCJpc0luR3JhY2VQZXJpb2QiOmZhbHNlfQ=="
+    );
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }
 
