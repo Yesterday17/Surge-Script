@@ -6,4 +6,4 @@
 hostname = %APPEND% license.pdfexpert.com
 
 [Script]
-pdfexpert = type=http-response,pattern=license.pdfexpert.com/api/1.0/pdfexpert6/subscription/(refresh|checck),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Yesterday17/Surge-Script/master/pdfexpert/pdfexpert.js
+pdfexpert = type=http-response,pattern=license.pdfexpert.com/api/2.0/pdfexpert6/subscription/(refresh|checck),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Yesterday17/Surge-Script/master/pdfexpert/pdfexpert.js
